@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ChainLink</title>
+    <title>ChainLink - Encrypt</title>
     <meta name="description" content="Simple AES 256 GCM">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/sticky-menu.css" rel="stylesheet">
@@ -45,15 +45,37 @@
     </nav>
     <br /><br /><br /><br /><br />
 
-    <!-- Welcome -->
-    <section id="about" class="info-section">
+    <!-- Encrypt -->
+    <section id="encrypt" class="encrypt-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>ChainLink</h1>
-                    <p>ChainLink is a fully in-browser cryptography playground. All operations are done within your browser and never on an external server. Nothing that you enter into this site is ever sent over the internet ensuring that you have full custody of your information.</p>
-                    <p>This applicaiton aims to provide people with easy to use, accessible, and secure cryptography that can be used regardless of platform, OS, or browser. However, because this site relies on the <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto">SubtleCrypto API</a> a modern browser with support is required. If you do not have access to a modern, up-to-date, browser then you have larger concerns to deal with before you worry about toy cryptography.</p>
-                    <p> ChainLink aims to provide a full pipeline of operations that can be used to secure communications between two parties using only this site and an unsecure channel of communication. In order to do this ChainLink provides an implementation of the <a href="exchange.html">Diffie–Hellman key exchange</a> (<a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">wiki</a>) which allows two parties to create a shared secret. That secret is then hashed with the SHA-256 hashing algorithm (<a href="https://en.wikipedia.org/wiki/SHA-2">wiki</a>) in order to create a 256-bit AES-GCM key that will be used to encrypt the key generated to encrypt messages with. Messages are secured with the AES-256 (<a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">wiki</a>) block cipher in the GCM mode (<a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">wiki</a>) which provides both strong encryption as well as message authentication.
+                    <h1>Encrypt</h1>
+                    <small class="form-text text-muted">Using the shared key from <a href="exchange.html">the exchange step</a> and the <a href="generate.html">generated key</a>, encrypt a message.</small>
+                    <hr />
+                    <form>
+                      <div class="form-group">
+                        <div class="form-group">
+                          <label for="encrypt-secret">Shared secret:</label>
+                          <input type="text" class="form-control" id="encrypt-secret">
+                        </div>
+                        <div class="form-group">
+                          <label for="encrypt-key">Encryption key:</label>
+                          <input type="text" class="form-control" id="encrypt-key">
+                        </div>
+                        <label for="encrypt-plaintext">Plain-text:</label>
+                        <textarea class="form-control" id="encrypt-plaintext" rows="6"></textarea>
+                        <small class="form-text text-muted">An iv will be securely generated for you.</small>
+                      </div>
+                      <div class="form-group">
+                        <button id="encrypt-submit">Encrypt</button>
+                      </div>
+                      <div class="form-group">
+                        <label for="encrypt-ciphertext">Cipher-text:</label>
+                        <textarea class="form-control" id="encrypt-ciphertext" rows="6" readonly></textarea>
+                        <small class="form-text text-muted">JSON string containing hex encoded iv and cipher-text (base64 encoded).</small>
+                      </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -69,6 +91,9 @@
 
     <!-- Crypto library -->
     <script src="js/crypto.js"></script>
+
+    <!-- Encrypt library -->
+    <script src="js/encrypt.js"></script>
 
 </body>
 
