@@ -47,9 +47,14 @@
                     <h1>Encrypt</h1>
                     <form>
                       <div class="form-group">
+                        <div class="form-group">
+                          <label for="encrypt-key">Encryption key:</label>
+                          <input type="text" class="form-control" id="encrypt-key">
+                          <small class="form-text text-muted">Key to be used for encryption. If one is not provided one will be securely generated. (hex encoded).</small>
+                        </div>
                         <label for="encrypt-plaintext">Plain-text:</label>
                         <textarea class="form-control" id="encrypt-plaintext" rows="6"></textarea>
-                        <small class="form-text text-muted">An encryption key and iv will be securely generated for you.</small>
+                        <small class="form-text text-muted">An iv will be securely generated for you.</small>
                       </div>
                       <div class="form-group">
                         <button id="encrypt-submit">Encrypt</button>
@@ -59,12 +64,12 @@
                       <div class="form-group">
                         <label for="encrypt-cipherload">Ciphered load:</label>
                         <textarea class="form-control" id="encrypt-cipherload" rows="6" readonly></textarea>
-                        <small class="form-text text-muted">Contains the iv and the cipher-text in base64 encoding delimited by a colon(:).</small>
+                        <small class="form-text text-muted">JSON string containing iv and cipher-text (hex encoded).</small>
                       </div>
                       <div class="form-group">
-                        <label for="encrypt-key">Key:</label>
-                        <input type="text" class="form-control" id="encrypt-key">
-                        <small class="form-text text-muted">Store this in a secure place for later decryption (base64 encoded).</small>
+                        <label for="encrypt-exportkey">Key:</label>
+                        <input type="text" class="form-control" id="encrypt-exportkey" readonly>
+                        <small class="form-text text-muted">Store in a secure place for later decryption (hex encoded).</small>
                       </div>
                     </form>
                 </div>
@@ -82,12 +87,12 @@
                       <div class="form-group">
                         <label for="decrypt-cipherload">Ciphered load:</label>
                         <textarea class="form-control" id="decrypt-cipherload" rows="6"></textarea>
-                        <small class="form-text text-muted">Should contain the iv and the cipher-text base64 encoded delimited by a colon (:).</small>
+                        <small class="form-text text-muted">JSON encoded iv and cipher-text (both hex encoded).</small>
                       </div>
                       <div class="form-group">
                         <label for="decrypt-key">Key:</label>
                         <input type="password" class="form-control" id="decrypt-key">
-                        <small class="form-text text-muted">Key used to encrypt the cipher-text (base64 encoded).</small>
+                        <small class="form-text text-muted">Key used to encrypt the cipher-text (hex encoded).</small>
                       </div>
                       <div class="form-group">
                         <button id="decrypt-submit">Decrypt</button>
@@ -118,7 +123,7 @@
     <script src="js/sticky-menu.js"></script> -->
 
     <!-- Kippr application code -->
-    <script src="js/kippr.js"></script>
+    <script src="js/kippr2.js"></script>
 
 </body>
 
