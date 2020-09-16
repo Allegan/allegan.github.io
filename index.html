@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Kippr</title>
+    <meta name="description" content="Simple AES 256 GCM">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sticky-menu.css" rel="stylesheet">
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Kippr</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#encrypt">Encrypt</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#decrypt">Decrypt</a>
+                    </li>
+                </ul>
+            </div>	<!-- .navbar-collapse -->
+        </div>		<!-- .container -->
+    </nav>
+    <br /><br /><br /><br /><br />
+
+    <!-- Encrypt -->
+    <section id="encrypt" class="encrypt-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Encrypt</h1>
+                    <form>
+                      <div class="form-group">
+                        <label for="encrypt-plaintext">Plain-text:</label>
+                        <textarea class="form-control" id="encrypt-plaintext" rows="6"></textarea>
+                        <small class="form-text text-muted">An encryption key and iv will be securely generated for you.</small>
+                      </div>
+                      <div class="form-group">
+                        <button id="encrypt-submit">Encrypt</button>
+                      </div>
+                    </form>
+                    <form>
+                      <div class="form-group">
+                        <label for="encrypt-cipherload">Ciphered load:</label>
+                        <textarea class="form-control" id="encrypt-cipherload" rows="6" readonly></textarea>
+                        <small class="form-text text-muted">Contains the iv and the cipher-text in base64 encoding delimited by a colon(:).</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="encrypt-key">Key:</label>
+                        <input type="text" class="form-control" id="encrypt-key">
+                        <small class="form-text text-muted">Store this in a secure place for later decryption (base64 encoded).</small>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Decrypt -->
+    <section id="decrypt" class="decrypt-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Decrypt</h1>
+                    <form>
+                      <div class="form-group">
+                        <label for="decrypt-cipherload">Ciphered load:</label>
+                        <textarea class="form-control" id="decrypt-cipherload" rows="6"></textarea>
+                        <small class="form-text text-muted">Should contain the iv and the cipher-text base64 encoded delimited by a colon (:).</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="decrypt-key">Key:</label>
+                        <input type="password" class="form-control" id="decrypt-key">
+                        <small class="form-text text-muted">Key used to encrypt the cipher-text (base64 encoded).</small>
+                      </div>
+                      <div class="form-group">
+                        <button id="decrypt-submit">Decrypt</button>
+                      </div>
+                    </form>
+                    <form>
+                      <div class="form-group">
+                        <label for="decrypt-plaintext">Plain-text:</label>
+                        <textarea class="form-control" id="decrypt-plaintext" rows="6" readonly></textarea>
+                        <small class="form-text text-muted">Decrypted plain-text.</small>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<a id="back2Top" title="Back to top" href="#">&#10148;</a>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <!-- <script src="js/jquery.easing.min.js"></script>
+    <script src="js/sticky-menu.js"></script> -->
+
+    <!-- Kippr application code -->
+    <script src="js/kippr.js"></script>
+
+</body>
+
+</html>
