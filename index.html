@@ -1,121 +1,79 @@
 <!doctype html>
-<html lang="en" class="no-js">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ChainLink</title>
-    <meta name="description" content="Simple AES-256 GCM message encryption with ECDH key-exchange online and in your browser.">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/sticky-menu.css" rel="stylesheet">
-</head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle menu</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="index.html">ChainLink</a>
-            </div>
+<html lang="en">
+    <head>
+        <title>Allegan Brigham</title>
 
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="hidden">
-                        <a class="page-scroll" href="#page-top"></a>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    </head>
+    <body>
+        <!-- navigation -->
+        <nav class="navbar navbar-expand-md bg-dark">
+            <span class="navbar-brand mb-0 h1 text-light">Allegan</span>
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="#">Home</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="exchange.html">Exchange</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="generate.html">Generate</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="encrypt.html">Encrypt</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="decrypt.html">Decrypt</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarChainLinkDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ChainLink
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarChainLinkDropdown">
+                            <a class="dropdown-item text-dark" href="chainlink/about.html">Instructions</a>
+                            <a class="dropdown-item text-dark" href="chainlink/exchange.html">Exchange</a>
+                            <a class="dropdown-item text-dark" href="chainlink/generate.html">Generate</a>
+                            <a class="dropdown-item text-dark" href="chainlink/encrypt.html">Encrypt</a>
+                            <a class="dropdown-item text-dark" href="chainlink/decrypt.html">Decrypt</a>
+                        </div>
                     </li>
                 </ul>
-            </div>	<!-- .navbar-collapse -->
-        </div>		<!-- .container -->
-    </nav>
-    <br /><br /><br /><br /><br />
+            </div>
+        </nav>
 
-    <!-- Welcome -->
-    <section id="about" class="info-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>ChainLink</h1>
-                    <p>ChainLink is a fully in-browser cryptography playground. All operations are done within your browser and never on an external server. Nothing that you enter into this site is ever sent over the internet ensuring that you have full custody of your information.</p>
-                    <p>This applicaiton aims to provide people with easy to use, accessible, and secure cryptography that can be used regardless of platform, OS, or browser. However, because this site relies on the <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto">SubtleCrypto API</a> a modern browser with support is required. If you do not have access to a modern, up-to-date, browser then you have larger concerns to deal with before you worry about toy cryptography.</p>
-                    <p> ChainLink aims to provide a full pipeline of operations that can be used to secure communications between two parties using only this site and an unsecure channel of communication. In order to do this ChainLink provides an implementation of the <a href="exchange.html">Eliptical-curve Diffie–Hellman key exchange</a> (<a href="https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman">wiki</a>) which allows two parties to create a shared secret. That secret is then hashed with the SHA-256 hashing algorithm (<a href="https://en.wikipedia.org/wiki/SHA-2">wiki</a>) in order to create a 256-bit AES-GCM key that will be used to encrypt the key generated to encrypt messages with. Messages are secured with the AES-256 (<a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">wiki</a>) block cipher in the GCM mode (<a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">wiki</a>) which provides both strong encryption as well as message authentication.</p>
+        <!-- splash -->
+        <header class="page-header header container-fluid">
+            <div class="overlay">
+                <div class="description text-light">
+                    <h1>Allegan Brigham</h1>
+                    <p>Open-source cryptography hobbyist</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- How-to -->
-    <section id="howto" class="howto-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Instructions:</h1>
-                    <ol>
-                      <li>
-                        <p>Find a person that you want to communicate with.</p>
-                      </li>
-                      <li>
-                        <p>Send them a link to this website.</p>
-                      </li>
-                      <li>
-                        <p>Have them <a href="exchange.html">generate a secret and a public key</a>; do the same.</p>
-                      </li>
-                      <li>
-                        <p>Have them send you their public key; send them your public key.</p>
-                      </li>
-                      <li>
-                        <p>Have them use your public key to generate a shared secret; do the same. <b>DO NOT SHARE THIS WITH ANYONE</b> (a shared secret is one you two share but is not to be shared).</p>
-                      </li>
-                      <li>
-                        <p>Using your shared secret <a href="generate.html">generate an encryption key</a>. Share this generated key with your partner.</p>
-                      </li>
-                      <li>
-                        <p>Using your shared key and the encryption key either <a href="encrypt.html">encrypt</a> or <a href="decrypt.html">decrypt</a> messages. Share the cipher-text only from here on out.</p>
-                      </li>
-                    </ol>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <h6 class="text-uppercase font-weight-bold">Additional Information</h6>
+                        <p>All utilities on this site are provided as-is with no warranty implied or otherwise. I am not responsible for loss of data resulting from the use of this site.</p>
+                        <p>Additionally, I make no garauntees that the utilities provided by this site are cryptographically sound in any way, shape, or form. If you are trying to hide things from prying eyes it is best to look elsewhere.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                        <p>Email me:
+                            <br/>alleganbrigham@gmail.com
+                            <br /><br />GPG:
+                            <br/>GitHub: 938D1714A84A021E
+                            <br/>Email: A73322DF88539324</p>
+                    </div>
                 </div>
+                <div class="footer-copyright text-center">© 2020 Copyright Allegan Brigham (all content licensed under the terms of the <a class="text-light" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3</a>)</div>
             </div>
-        </div>
-    </section>
+        </footer>
 
-    <!-- Credits -->
-    <section id="about" class="info-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Special thanks</h1>
-                    <p>I would like to extend a special thanks to GitHub user <a href="https://github.com/CryptoEsel">Mykola Bubelich</a> for their <a href="https://github.com/CryptoEsel/js-x25519">X25519</a> implementation which I use to generate shared secrets in the <a href="exchange.html">exchange</a> step. Without their project I would not have been able to easily implement a key-exchange algorithm in a timely matter.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- bootstrap and jquery -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 
-	<a id="back2Top" title="Back to top" href="#">&#10148;</a>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Crypto library -->
-    <script src="js/crypto.js"></script>
-
-</body>
-
+        <!-- custom js -->
+        <script src="js/main.js"></script>
+    </body>
 </html>
