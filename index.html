@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ChainLink</title>
-    <meta name="description" content="Simple AES 256 GCM">
+    <meta name="description" content="Simple AES-256 GCM message encryption with ECDH key-exchange online and in your browser.">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/sticky-menu.css" rel="stylesheet">
 </head>
@@ -53,7 +53,53 @@
                     <h1>ChainLink</h1>
                     <p>ChainLink is a fully in-browser cryptography playground. All operations are done within your browser and never on an external server. Nothing that you enter into this site is ever sent over the internet ensuring that you have full custody of your information.</p>
                     <p>This applicaiton aims to provide people with easy to use, accessible, and secure cryptography that can be used regardless of platform, OS, or browser. However, because this site relies on the <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto">SubtleCrypto API</a> a modern browser with support is required. If you do not have access to a modern, up-to-date, browser then you have larger concerns to deal with before you worry about toy cryptography.</p>
-                    <p> ChainLink aims to provide a full pipeline of operations that can be used to secure communications between two parties using only this site and an unsecure channel of communication. In order to do this ChainLink provides an implementation of the <a href="exchange.html">Diffie–Hellman key exchange</a> (<a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">wiki</a>) which allows two parties to create a shared secret. That secret is then hashed with the SHA-256 hashing algorithm (<a href="https://en.wikipedia.org/wiki/SHA-2">wiki</a>) in order to create a 256-bit AES-GCM key that will be used to encrypt the key generated to encrypt messages with. Messages are secured with the AES-256 (<a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">wiki</a>) block cipher in the GCM mode (<a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">wiki</a>) which provides both strong encryption as well as message authentication.
+                    <p> ChainLink aims to provide a full pipeline of operations that can be used to secure communications between two parties using only this site and an unsecure channel of communication. In order to do this ChainLink provides an implementation of the <a href="exchange.html">Eliptical-curve Diffie–Hellman key exchange</a> (<a href="https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman">wiki</a>) which allows two parties to create a shared secret. That secret is then hashed with the SHA-256 hashing algorithm (<a href="https://en.wikipedia.org/wiki/SHA-2">wiki</a>) in order to create a 256-bit AES-GCM key that will be used to encrypt the key generated to encrypt messages with. Messages are secured with the AES-256 (<a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">wiki</a>) block cipher in the GCM mode (<a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">wiki</a>) which provides both strong encryption as well as message authentication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How-to -->
+    <section id="howto" class="howto-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Instructions:</h1>
+                    <ol>
+                      <li>
+                        <p>Find a person that you want to communicate with.</p>
+                      </li>
+                      <li>
+                        <p>Send them a link to this website.</p>
+                      </li>
+                      <li>
+                        <p>Have them <a href="exchange.html">generate a secret and a public key</a>; do the same.</p>
+                      </li>
+                      <li>
+                        <p>Have them send you their public key; send them your public key.</p>
+                      </li>
+                      <li>
+                        <p>Have them use your public key to generate a shared secret; do the same. <b>DO NOT SHARE THIS WITH ANYONE</b> (a shared secret is one you two share but is not to be shared).</p>
+                      </li>
+                      <li>
+                        <p>Using your shared secret <a href="generate.html">generate an encryption key</a>. Share this generated key with your partner.</p>
+                      </li>
+                      <li>
+                        <p>Using your shared key and the encryption key either <a href="encrypt.html">encrypt</a> or <a href="decrypt.html">decrypt</a> messages. Share the cipher-text only from here on out.</p>
+                      </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credits -->
+    <section id="about" class="info-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Special thanks</h1>
+                    <p>I would like to extend a special thanks to GitHub user <a href="https://github.com/CryptoEsel">Mykola Bubelich</a> for their <a href="https://github.com/CryptoEsel/js-x25519">X25519</a> implementation which I use to generate shared secrets in the <a href="exchange.html">exchange</a> step. Without their project I would not have been able to easily implement a key-exchange algorithm in a timely matter.</p>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ChainLink - Exchange</title>
-    <meta name="description" content="Simple AES 256 GCM">
+    <meta name="description" content="Simple AES-256 GCM message encryption with ECDH key-exchange online and in your browser.">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/sticky-menu.css" rel="stylesheet">
 </head>
@@ -51,14 +51,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Exchange</h1>
+                    <small class="form-text text-muted">Generate a 256-bit ECDH key which will be hashed using SHA-256 to encrypt your generated AES key.</small>
                     <hr />
                     <form>
                       <div class="form-group">
                         <h4>Step 1</h4>
-                        <small class="form-text text-muted">Your secret key. If you do not have one generate one.</small>
+                        <small class="form-text text-muted">Your secret key. Do not share this with anyone.</small>
                         <br />
                         <label for="exchange-secretkey">Secret key:</label>
-                        <input type="text" class="form-control" id="exchange-secretkey">
+                        <input type="text" class="form-control" id="exchange-secretkey" readonly>
                         <br />
                         <button id="exchange-generate-secretkey">Generate</button>
                       </div>
@@ -68,20 +69,19 @@
                         <small class="form-text text-muted">Your public key. Exchange this for your partner's public key.</small>
                         <br />
                         <label for="exchange-publickey">Public key:</label>
-                        <input type="text" class="form-control" id="exchange-publickey">
+                        <input type="text" class="form-control" id="exchange-publickey" readonly>
                         <br />
                         <button id="exchange-generate-publickey">Generate</button>
                       </div>
                       <hr />
-                      <hr />
                       <div class="form-group">
                         <h4>Step 3</h4>
-                        <small class="form-text text-muted">Calculate shared key. Do not send to anyone. This is used to encrypt your key later.</small>
+                        <small class="form-text text-muted">Calculate your shared secret. Do not share this. It is used when generating an encryption key and in encrypting and decrypting.</small>
                         <br />
                         <label for="exchange-otherpublickey">Other public key:</label>
                         <input type="text" class="form-control" id="exchange-otherpublickey">
                         <br />
-                        <label for="exchange-sharedkey">Shared key (private):</label>
+                        <label for="exchange-sharedkey">Shared secret (private):</label>
                         <input type="text" class="form-control" id="exchange-sharedkey" readonly>
                         <br />
                         <button id="exchange-calculate-sharedkey">Calculate</button>
