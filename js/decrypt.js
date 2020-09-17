@@ -19,7 +19,7 @@ form.submit.addEventListener("click", async (e) => {
   secretKey = await secretToKey(secretKey)
 
   // decode the ciphertext and iv
-  let cipherJson= hexStrToByteArray(ct)
+  let cipherJson = hexStrToByteArray(ct)
   cipherJson = byteArrayToStr(cipherJson)
   cipherJson = JSON.parse(cipherJson)
 
