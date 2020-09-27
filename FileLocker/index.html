@@ -1,56 +1,53 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Allegan Brigham</title>
+        <title>FileLocker</title>
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <meta name="description" content="File encryption made simple and secure." />
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="css/main.css" />
 
     </head>
-    <body>
+    <body class="bg-dark text-light">
         <!-- navigation -->
         <nav class="navbar navbar-expand-md bg-dark">
-            <span class="navbar-brand mb-0 h1 text-light">Allegan</span>
+            <span class="navbar-brand mb-0 h1 text-light">FileLocker</span>
             <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="main-navigation">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link text-light" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="https://gist.github.com/Allegan/97a7b002837e21fa37a3e929c546ca11">Icy.js</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="FileLocker/index.html">FileLocker</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarChainLinkDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            ChainLink
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarChainLinkDropdown">
-                            <a class="dropdown-item text-dark" href="chainlink/about.html">Instructions</a>
-                            <a class="dropdown-item text-dark" href="chainlink/exchange.html">Exchange</a>
-                            <a class="dropdown-item text-dark" href="chainlink/generate.html">Generate</a>
-                            <a class="dropdown-item text-dark" href="chainlink/encrypt.html">Encrypt</a>
-                            <a class="dropdown-item text-dark" href="chainlink/decrypt.html">Decrypt</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </nav>
 
-        <!-- splash -->
-        <header class="page-header header container-fluid">
-            <div class="overlay">
-                <div class="description text-light">
-                    <h1>Allegan Brigham</h1>
-                    <p>Open-source cryptography hobbyist</p>
-                </div>
+        <header class="page-header text-light">
+            <div class="jumbotron bg-secondary">
+                <h1 class="display-3">FileLocker</h1>
+                <p class="lead">File encryption made simple, secure, and easy.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" id="input-file">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="operation" id="encrypt-radio" value="encrypt" checked>
+                        <label class="form-check-label" for="encrypt-radio">
+                          Encrypt
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="operation" id="decrypt-radio" value="decrypt">
+                        <label class="form-check-label" for="decrypt-radio">
+                          Decrypt
+                        </label>
+                      </div>
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-light text-dark" id="password-input-label">Password</span>
+                        </div>
+                        <input id="password-input" type="password" class="form-control bg-light text-dark" aria-label="Password" aria-describedby="password-input-label">
+                      </div>
+                      <button type="submit" class="btn btn-dark">Submit</button>
+                      <a id="download-button" class="btn btn-dark disabled">Download</a>
+                </form>
             </div>
         </header>
 
@@ -80,6 +77,7 @@
         <script src="js/bootstrap.min.js"></script>
 
         <!-- custom js -->
+        <script src="js/triplesec.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
