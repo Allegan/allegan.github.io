@@ -3,61 +3,77 @@
     <head>
         <title>FileLocker</title>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="File encryption made simple and secure." />
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <meta charset="utf-8">
+        <meta name="title" content="FileLocker">
+        <meta name="description" content="Online in-browser file encryption made simple, safe, and secure. FileLocker uses AES-256 GCM coupled with PBKDF2 to protect your files.">
+        <meta name="keywords" content="encryption,cryptography,aes256,pbkdf2,gcm">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="author" content="Allegan Brigham">
 
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/footer.css">
     </head>
-    <body class="bg-dark text-light">
-        <!-- navigation -->
-        <nav class="navbar navbar-expand-md bg-dark">
-            <span class="navbar-brand mb-0 h1 text-light">FileLocker</span>
-            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav>
+    <body class="bg-dark">
+        <!-- jumbotron -->
+        <div class="jumbotron bg-secondary">
+            <h1 class="text-white">FileLocker</h1>
+            <small class="text-light">Online in-browser file encryption made simple, safe and secure.</small>
+        </div>
 
-        <header class="page-header text-light">
-            <div class="jumbotron bg-secondary">
-                <h1 class="display-3">FileLocker</h1>
-                <p class="lead">File encryption made simple, secure, and easy.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="file" class="form-control-file" id="input-file">
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="operation" id="encrypt-radio" value="encrypt" checked>
-                        <label class="form-check-label" for="encrypt-radio">
-                          Encrypt
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="operation" id="decrypt-radio" value="decrypt">
-                        <label class="form-check-label" for="decrypt-radio">
-                          Decrypt
-                        </label>
-                      </div>
-                      <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text bg-light text-dark" id="password-input-label">Password</span>
+        <!-- body -->
+        <section class="container bg-light rounded p-2">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3><span id="operation">Encrypt</span> a file</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" id="input-file">
                         </div>
-                        <input id="password-input" type="password" class="form-control bg-light text-dark" aria-label="Password" aria-describedby="password-input-label">
-                      </div>
-                      <button type="submit" class="btn btn-dark">Submit</button>
-                      <a id="download-button" class="btn btn-dark disabled">Download</a>
-                </form>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="operation" id="encrypt-radio" value="encrypt" checked>
+                            <label class="form-check-label" for="encrypt-radio">
+                              Encrypt
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="operation" id="decrypt-radio" value="decrypt">
+                            <label class="form-check-label" for="decrypt-radio">
+                              Decrypt
+                            </label>
+                          </div>
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text bg-light text-dark" id="password-input-label">Password</span>
+                            </div>
+                            <input id="password-input" type="password" class="form-control bg-light text-dark" aria-label="Password" aria-describedby="password-input-label">
+                          </div>
+                          <button id="submit-button" type="submit" class="btn btn-primary">Encrypt</button>
+                          <a id="download-button" class="btn btn-secondary disabled">Download</a>
+                    </form>
+                </div>
             </div>
-        </header>
+        </section>
 
+        <section class="container p-2 text-secondary">
+            <div class="row">
+                <div class="col-sm-12">
+                    <small class="font-italic">Files are secured using AES-256 GCM with keys derived from the password using 100,000 iterations of the PBKDF2 key-derivation function. Encrypted files are stored as JSON in order to aid in the encoding and decoding of the payloads.</small>
+                </div>
+            </div>
+        </section>
+
+        <br/>
+
+        <!-- footer -->
         <footer class="page-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12">
                         <h6 class="text-uppercase font-weight-bold">Additional Information</h6>
                         <p>All utilities on this site are provided as-is with no warranty implied or otherwise. I am not responsible for loss of data resulting from the use of this site.</p>
-                        <p>Additionally, I make no garauntees that the utilities provided by this site are cryptographically sound in any way, shape, or form. If you are trying to hide things from prying eyes it is best to look elsewhere.</p>
+                        <p>Additionally, I make no guarntees that the utilities provided by this site are cryptographically sound in any way, shape, or form. If you are trying to hide things from prying eyes it is best to look elsewhere.</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <h6 class="text-uppercase font-weight-bold">Contact</h6>
@@ -72,12 +88,12 @@
             </div>
         </footer>
 
-        <!-- bootstrap and jquery -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <!-- libraries -->
+        <script src="js/lib/triplesec.js"></script>
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
 
-        <!-- custom js -->
-        <script src="js/triplesec.js"></script>
-        <script src="js/main.js"></script>
+        <!-- app.js -->
+        <script type="module" src="js/app.js"></script>
     </body>
 </html>
